@@ -18,7 +18,8 @@
     "target": "ES2022",
     "module": "ES2022",
     "paths": {
-      "@finance-app/core/storage": ["/src/app/core/storage/_index.ts"]
+      "@finance-app/core/storage": ["/src/app/core/storage/_index.ts"],
+      "@finance-app/shared/cdk/types": ["/src/app/shared/cdk/types/_index.ts"]
     }
   },
   "angularCompilerOptions": {
