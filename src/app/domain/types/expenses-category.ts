@@ -5,4 +5,4 @@ export const EXPENSES_CATEGORY = {
     entertainment: 'Entertainment'
 } as const;
 
-export type IncomeCategory = UnionOf<typeof EXPENSES_CATEGORY>;
+export type ExpensesCategory = UnionOf<typeof EXPENSES_CATEGORY>;
