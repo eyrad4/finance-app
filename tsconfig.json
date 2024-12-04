@@ -20,7 +20,10 @@
     "paths": {
       "@finance-app/core/storage": ["./src/app/core/storage/_index.ts"],
       "@finance-app/shared/cdk/types": ["./src/app/shared/cdk/types/_index.ts"],
-      "@finance-app/domain/types": ["./src/app/domain/types/_index.ts"]
+      "@finance-app/domain/types": ["./src/app/domain/types/_index.ts"],
+      "@finance-app/shared/ui-kit": ["./src/app/shared/ui-kit/_index.ts"],
+      "@finance-app/shared/cdk/web-apis": ["./src/app/shared/cdk/web-apis/_index.ts"],
+      "@finance-app/shared/cdk/services": ["./src/app/shared/cdk/services/_index.ts"],
     }
   },
   "angularCompilerOptions": {
