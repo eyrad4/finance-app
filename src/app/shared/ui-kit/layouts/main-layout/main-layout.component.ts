@@ -8,11 +8,15 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     styles: [
         `
             :host {
-                @apply grid grid-cols-[256px_1fr];
+                .main-menu {
+                    &-item {
+                        @apply font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500;
 
-                .main-layout {
-                    &__content {
-                        width: calc(100vw - 256px);
+                        &.active {
+                            @apply font-medium focus:outline-none;
+
+                            color: #00dddd;
+                        }
                     }
                 }
             }
