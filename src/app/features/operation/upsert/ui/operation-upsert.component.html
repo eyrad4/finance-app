@@ -19,6 +19,7 @@
 
   <mat-form-field>
     <mat-label>Amount</mat-label>
+    <span matTextPrefix class="text-white">$ &nbsp;</span>
     <input matInput placeholder="$10.00" type="number" formControlName="amount">
   </mat-form-field>
 
@@ -31,17 +32,13 @@
     </mat-select>
   </mat-form-field>
 
-<!--  <mat-form-field>-->
-<!--    <mat-label>Operation Date</mat-label>-->
-<!--    <input-->
-<!--      matInput-->
-<!--      formControlName="date"-->
-<!--      [matDatepicker]="picker"-->
-<!--    />-->
-<!--    <mat-hint>MM/DD/YYYY</mat-hint>-->
-<!--    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>-->
-<!--    <mat-datepicker #picker></mat-datepicker>-->
-<!--  </mat-form-field>-->
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput formControlName="date" [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 
   <div class="flex justify-between">
     @if (id()) {

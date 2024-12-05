@@ -68,10 +68,10 @@ export class OperationUpsertFormService {
     private _initForm(): void {
         this._form = this._fb.group({
             name: this._fb.control<string>('', [Validators.required]),
-            amount: this._fb.control<number>(DEFAULT_AMOUNT, [Validators.required]),
+            amount: this._fb.control<number | string>('', [Validators.required]),
             category: this._fb.control<TransactionModel['category']>(null),
-            operationType: this._fb.control<TransactionModel['operationType']>(OPERATION_TYPE.expense, [Validators.required])
-            // date: this._fb.control<Date>(new Date(), [Validators.required])
+            operationType: this._fb.control<TransactionModel['operationType']>(OPERATION_TYPE.expense, [Validators.required]),
+            date: this._fb.control<Date>(new Date(), [Validators.required])
         });
     }
 }

@@ -6,10 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { MatInput } from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatOption, MatSelect } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { filter, switchMap, take } from 'rxjs';
@@ -32,13 +32,9 @@ import { OperationUpsertFormService } from '../services/operation-upsert-form.se
         `
     ],
     imports: [
-        MatFormField,
-        MatInput,
-        MatLabel,
         MatIconModule,
         MatSelect,
         MatOption,
-        MatDatepickerModule,
         MatButtonToggleGroup,
         MatButtonToggle,
         MatButtonModule,
@@ -46,7 +42,10 @@ import { OperationUpsertFormService } from '../services/operation-upsert-form.se
         ReactiveFormsModule,
         JsonPipe,
         OperationUpsertCategoryPipe,
-        MatDialogModule
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [provideNativeDateAdapter(), OperationUpsertFormService, OperationUpsertFetchService]
@@ -130,7 +129,8 @@ export class OperationUpsertComponent implements OnInit {
                                 name: data.name,
                                 amount: data.amount,
                                 category: data.category,
-                                operationType: data.operationType
+                                operationType: data.operationType,
+                                date: data.date
                             });
                         } else {
                             this._snackBarService.open('This operation does not exist');

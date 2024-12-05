@@ -4,8 +4,8 @@ import { Nullish } from '@finance-app/shared/cdk/types';
 export interface TransactionModel {
     id: string;
     name: string;
-    amount: number;
+    amount: number | string;
     category: ExpensesCategory | IncomeCategory | Nullish;
     operationType: OperationType;
-    // date: Date;
+    date: Date;
 }
