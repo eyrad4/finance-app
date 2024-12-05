@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, Signal, signal } 
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { RouterLink } from '@angular/router';
 
 import { Nullish } from '@finance-app/shared/cdk/types';
 
@@ -10,13 +11,12 @@ import { OperationUpsertFetchService } from '../../data-access/transaction-list-
 import { TransactionListFilterService } from '../../services/transaction-list-filter.service';
 import { TransactionListSortService } from '../../services/transaction-list-sort.service';
 import { TransactionListFiltersComponent } from '../filters/transaction-list-filters.component';
-import {RouterLink} from '@angular/router';
 
 @Component({
     standalone: true,
     selector: 'app-transaction-list',
     templateUrl: './transaction-list.component.html',
-  imports: [MatTableModule, MatSortModule, TransactionListFiltersComponent, RouterLink],
+    imports: [MatTableModule, MatSortModule, TransactionListFiltersComponent, RouterLink],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [OperationUpsertFetchService, TransactionListFilterService, TransactionListSortService]
 })
