@@ -28,7 +28,8 @@
       "@finance-app/shared/services": ["./src/app/shared/services/_index.ts"],
       "@finance-app/shared/pipes": ["./src/app/shared/pipes/_index.ts"],
       "@finance-app/features/transaction": ["./src/app/features/transaction/_index.ts"],
-      "@finance-app/features/operation/upsert": ["./src/app/features/operation/upsert/_index.ts"]
+      "@finance-app/features/operation/upsert": ["./src/app/features/operation/upsert/_index.ts"],
+      "@finance-app/features/balance": ["./src/app/features/balance/_index.ts"]
     }
   },
   "angularCompilerOptions": {

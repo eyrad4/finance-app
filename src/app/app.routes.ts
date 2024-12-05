@@ -8,7 +8,7 @@ export const routes: Routes = [
         component: MainLayoutComponent,
         children: [
             {
-                path: 'transactions',
+                path: '',
                 loadComponent: () => import('@finance-app/features/transaction').then((c) => c.TransactionListComponent)
             },
             {

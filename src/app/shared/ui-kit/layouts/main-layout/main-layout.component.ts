@@ -1,5 +1,8 @@
-import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink, RouterOutlet } from '@angular/router';
+
+import { BalanceService } from '@finance-app/features/balance';
 
 @Component({
     standalone: true,
@@ -24,9 +27,12 @@ import { RouterLink, RouterOutlet } from '@angular/router';
         `
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [RouterOutlet, RouterLink]
+    imports: [RouterOutlet, RouterLink],
+    providers: [BalanceService]
 })
 export class MainLayoutComponent {
     @HostBinding('class')
     private _hostClass = 'main-layout';
+
+    protected readonly _currentBalance = toSignal(inject(BalanceService)?.currentBalance() ?? 0);
 }

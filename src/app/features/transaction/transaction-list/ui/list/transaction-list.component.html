@@ -1,3 +1,5 @@
+<div class="text-neutral-900 text-2xl font-bold mb-8">Transaction List</div>
+
 <app-transaction-list-filters />
 
 <table mat-table [dataSource]="_filteredItems()" matSort (matSortChange)="_sortWasChanged($event)">
