@@ -1,0 +1,58 @@
+<pre>
+  {{ _formService.form.value | json }}
+</pre>
+
+<div class="flex flex-col gap-8 w-[500px]" [formGroup]="_formService.form">
+  @if (!id()) {
+    <div class="flex justify-center">
+      <mat-button-toggle-group formControlName="operationType" aria-label="Operation Type">
+        <mat-button-toggle value="income" (click)="_formService.clear()">Income</mat-button-toggle>
+        <mat-button-toggle value="expense" (click)="_formService.clear()">Expense</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  }
+
+  <mat-form-field>
+    <mat-label>Name of Operation</mat-label>
+    <input matInput placeholder="Ex. Rent apartment" formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Amount</mat-label>
+    <input matInput placeholder="$10.00" type="number" formControlName="amount">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+    <mat-select formControlName="category">
+      @for (elem of _formService.operationTypeValue() | operationUpsertCategory; track elem?.value) {
+        <mat-option value="{{ elem?.value }}">{{ elem?.title }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+<!--  <mat-form-field>-->
+<!--    <mat-label>Operation Date</mat-label>-->
+<!--    <input-->
+<!--      matInput-->
+<!--      formControlName="date"-->
+<!--      [matDatepicker]="picker"-->
+<!--    />-->
+<!--    <mat-hint>MM/DD/YYYY</mat-hint>-->
+<!--    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #picker></mat-datepicker>-->
+<!--  </mat-form-field>-->
+
+  <div class="flex justify-between">
+    @if (id()) {
+      <button mat-icon-button (click)="_deleteHandler()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    }
+
+    <div class="flex items-center gap-4 ml-auto">
+      <button mat-button (click)="_cancelHandler()">Cancel</button>
+      <button mat-flat-button (click)="_actionHandler()">{{ _actionButtonLabel() }}</button>
+    </div>
+  </div>
+</div>
