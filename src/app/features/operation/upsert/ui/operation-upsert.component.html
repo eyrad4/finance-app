@@ -1,3 +1,10 @@
+<div class="flex items-start gap-2 w-full cursor-pointer" (click)="_cancelHandler()">
+  <mat-icon>first_page</mat-icon>
+  <span>back</span>
+</div>
+
+<div class="text-neutral-900 text-2xl font-bold">{{ _title() }}</div>
+
 <div class="flex flex-col gap-8 w-[500px]" [formGroup]="_formService.form">
   @if (!id()) {
     <div class="flex justify-center">

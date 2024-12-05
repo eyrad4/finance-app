@@ -25,7 +25,7 @@ import { OperationUpsertFormService } from '../services/operation-upsert-form.se
     styles: [
         `
             :host {
-                @apply block mx-auto;
+                @apply flex flex-col gap-8 items-center;
             }
         `
     ],
@@ -59,6 +59,8 @@ export class OperationUpsertComponent implements OnInit {
     private readonly _dialogService = inject(DialogService);
 
     protected readonly _formService = inject(OperationUpsertFormService);
+
+    protected _title = computed(() => (this.id() ? 'Edit operation' : 'Add new operation'));
 
     protected _actionButtonLabel = computed(() => {
         const label = this.id() ? 'Update' : 'Create';
