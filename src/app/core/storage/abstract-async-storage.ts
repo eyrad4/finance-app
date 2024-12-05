@@ -58,7 +58,7 @@ export abstract class AbstractAsyncStorage implements AsyncStorageInterface {
     setItem<T>(key: string, value: T | Partial<T>): void {
         const getItem = this.getItem(key);
         let newValue = value;
-        if (getItem && typeof getItem === 'object') {
+        if (getItem && typeof getItem === 'object' && !Array.isArray(value)) {
             newValue = {
                 ...getItem,
                 ...newValue
