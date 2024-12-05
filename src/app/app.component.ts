@@ -1,18 +1,12 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-root',
     imports: [RouterOutlet],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+    template: `
+        <router-outlet />
+    `,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
-    title = 'finance-app';
-
-    constructor() {
-        console.log('AppComponent created');
-        const t = () => 't';
-        console.log(t());
-    }
-}
+export class AppComponent {}
