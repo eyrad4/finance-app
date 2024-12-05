@@ -24,6 +24,7 @@
       "@finance-app/shared/ui-kit": ["./src/app/shared/ui-kit/_index.ts"],
       "@finance-app/shared/cdk/web-apis": ["./src/app/shared/cdk/web-apis/_index.ts"],
       "@finance-app/shared/cdk/services": ["./src/app/shared/cdk/services/_index.ts"],
+      "@finance-app/shared/cdk/validators": ["./src/app/shared/cdk/validators/_index.ts"],
       "@finance-app/shared/services": ["./src/app/shared/services/_index.ts"],
       "@finance-app/features/transaction/models": ["./src/app/features/transaction/_index.ts"],
       "@finance-app/features/operation/upsert": ["./src/app/features/operation/upsert/_index.ts"]

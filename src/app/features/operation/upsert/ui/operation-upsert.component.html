@@ -17,10 +17,20 @@
     <input matInput placeholder="Ex. Rent apartment" formControlName="name">
   </mat-form-field>
 
+
   <mat-form-field>
     <mat-label>Amount</mat-label>
-    <span matTextPrefix class="text-white">$ &nbsp;</span>
     <input matInput placeholder="$10.00" type="number" formControlName="amount">
+    <mat-hint>in USD</mat-hint>
+
+    @let hasErrorCustomPositiveNumber = _formService.amountControl.hasError('custom_positive_number');
+    @let hasErrorIncorrectAmount = _formService.amountControl.hasError('incorrect_amount');
+    @if (hasErrorCustomPositiveNumber) {
+      <mat-error>Please enter positive amount</mat-error>
+    }
+    @if (hasErrorIncorrectAmount && !hasErrorCustomPositiveNumber) {
+      <mat-error>Please enter the correct amount, the correct amount must be equal to 1 or greater than 1</mat-error>
+    }
   </mat-form-field>
 
   <mat-form-field>
