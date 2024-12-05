@@ -8,8 +8,8 @@ import { Nullish } from '@finance-app/shared/cdk/types';
 import { TransactionModel } from '../../../models/transaction.model';
 import { OperationUpsertFetchService } from '../../data-access/transaction-list-fetch.service';
 import { TransactionListFilterService } from '../../services/transaction-list-filter.service';
+import { TransactionListSortService } from '../../services/transaction-list-sort.service';
 import { TransactionListFiltersComponent } from '../filters/transaction-list-filters.component';
-import {TransactionListSortService} from '../../services/transaction-list-sort.service';
 
 @Component({
     standalone: true,
@@ -34,13 +34,9 @@ export class TransactionListComponent {
 
     protected _filteredItems = computed(() => {
         let items = this._items();
-
-        console.log('before sort and filtered', items);
         items = this._sortService.sortedItems(items);
-        console.log('after sort', items);
         items = this._filterService.filteredItems(items);
 
-      console.log('after sort and filtered', items);
         return items;
     });
 
