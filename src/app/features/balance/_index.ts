@@ -1,1 +1,1 @@
-export * from './services/balance.service';
+export * from './ui/balance.component';
