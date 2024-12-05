@@ -1,10 +1,8 @@
-import { ChangeDetectionStrategy, Component, computed, inject, Signal, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
-
-import { Nullish } from '@finance-app/shared/cdk/types';
 
 import { TransactionModel } from '../../../models/transaction.model';
 import { OperationUpsertFetchService } from '../../data-access/transaction-list-fetch.service';
@@ -29,8 +27,6 @@ export class TransactionListComponent {
 
     protected readonly _displayedColumns = ['name', 'amount', 'category', 'operationType', 'date'];
 
-    private readonly _sort = signal<Sort | Nullish>(undefined);
-
     protected _items: Signal<TransactionModel[]> = toSignal(this._operationUpsertFetchService.getAll()) as Signal<TransactionModel[]>;
 
     protected _filteredItems = computed(() => {
@@ -42,6 +38,6 @@ export class TransactionListComponent {
     });
 
     protected _sortWasChanged(sortData: Sort): void {
-        this._sort.set(sortData);
+        this._sortService.setSort(sortData);
     }
 }
