@@ -74,7 +74,8 @@ export class OperationUpsertFormService {
             amount: this._fb.control<number | string>('', [
                 Validators.required,
                 CustomValidators.positiveNumber,
-                CustomValidators.minMaxValidation(1)
+                CustomValidators.minMaxValidation(1),
+                CustomValidators.decimalDigitValidation(2)
             ]),
             category: this._fb.control<TransactionModel['category']>(null),
             operationType: this._fb.control<TransactionModel['operationType']>(OPERATION_TYPE.expense, [Validators.required]),

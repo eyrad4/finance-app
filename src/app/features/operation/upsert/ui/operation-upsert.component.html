@@ -25,11 +25,17 @@
 
     @let hasErrorCustomPositiveNumber = _formService.amountControl.hasError('custom_positive_number');
     @let hasErrorIncorrectAmount = _formService.amountControl.hasError('incorrect_amount');
+    @let hasErrorIncorrectDecimalDigit = _formService.amountControl.hasError('incorrect_decimal_digit');
     @if (hasErrorCustomPositiveNumber) {
       <mat-error>Please enter positive amount</mat-error>
     }
     @if (hasErrorIncorrectAmount && !hasErrorCustomPositiveNumber) {
       <mat-error>Please enter the correct amount, the correct amount must be equal to 1 or greater than 1</mat-error>
+    }
+    @if (hasErrorIncorrectDecimalDigit) {
+      <mat-error>
+        Please enter the correct amount, the correct amount must have a maximum of 2 decimal digits
+      </mat-error>
     }
   </mat-form-field>
 
