@@ -10,12 +10,13 @@ import { OperationUpsertFetchService } from '../../data-access/transaction-list-
 import { TransactionListFilterService } from '../../services/transaction-list-filter.service';
 import { TransactionListSortService } from '../../services/transaction-list-sort.service';
 import { TransactionListFiltersComponent } from '../filters/transaction-list-filters.component';
+import {RouterLink} from '@angular/router';
 
 @Component({
     standalone: true,
     selector: 'app-transaction-list',
     templateUrl: './transaction-list.component.html',
-    imports: [MatTableModule, MatSortModule, TransactionListFiltersComponent],
+  imports: [MatTableModule, MatSortModule, TransactionListFiltersComponent, RouterLink],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [OperationUpsertFetchService, TransactionListFilterService, TransactionListSortService]
 })
