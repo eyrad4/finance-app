@@ -1,3 +1,29 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { MainLayoutComponent } from '@finance-app/shared/ui-kit';
+
+export const routes: Routes = [
+    {
+        path: '',
+        component: MainLayoutComponent,
+        children: [
+            {
+                path: 'transactions',
+                loadComponent: () => import('@finance-app/features/operation/upsert').then((c) => c.OperationUpsertComponent)
+            },
+            {
+                path: 'operation',
+                children: [
+                    {
+                        path: '',
+                        loadComponent: () => import('@finance-app/features/operation/upsert').then((c) => c.OperationUpsertComponent)
+                    },
+                    {
+                        path: ':id',
+                        loadComponent: () => import('@finance-app/features/operation/upsert').then((c) => c.OperationUpsertComponent)
+                    }
+                ]
+            }
+        ]
+    }
+];
