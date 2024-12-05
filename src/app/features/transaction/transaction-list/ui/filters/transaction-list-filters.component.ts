@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, computed, inject, signal} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -7,7 +7,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { EXPENSES_CATEGORY, INCOME_CATEGORY, IncomeCategory, OPERATION_TYPE, OperationType } from '@finance-app/domain/types';
 import { Nullish } from '@finance-app/shared/cdk/types';
 import { UppercaseFirstLetterPipe } from '@finance-app/shared/pipes';
-import {TransactionListFilterService} from '../../services/transaction-list-filter.service';
+
+import { TransactionListFilterService } from '../../services/transaction-list-filter.service';
 
 type Category = IncomeCategory | OperationType | Nullish;
 

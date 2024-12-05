@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 
+import { Nullish } from '@finance-app/shared/cdk/types';
+
 import { AbstractAsyncStorage } from './abstract-async-storage';
 import { MemoryStorageService } from './memory-storage.service';
+
+type CustomWindow = {
+    localStorage: Storage;
+} & Window;
 
 /**
  * Return is storage available
@@ -9,7 +15,7 @@ import { MemoryStorageService } from './memory-storage.service';
  * @param type Storage name like as localStorage, sessionStorage
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
  */
-const storageAvailable = (type: string): boolean => {
+const storageAvailable = (type: 'localStorage'): boolean | Nullish => {
     let storage;
 
     if (typeof window === 'undefined') {
@@ -17,7 +23,7 @@ const storageAvailable = (type: string): boolean => {
     }
 
     try {
-        storage = (window as any)[type];
+        storage = (window as CustomWindow)?.[type];
         const x = '__storage_test__';
         storage.setItem(x, x);
         storage.removeItem(x);

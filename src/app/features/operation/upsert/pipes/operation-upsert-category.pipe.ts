@@ -20,7 +20,6 @@ interface ValueTitleModel<T extends string> {
     name: 'operationUpsertCategory'
 })
 export class OperationUpsertCategoryPipe implements PipeTransform {
-
     transform(operationType: OperationType | Nullish): ValueTitleModel<IncomeCategory>[] | ValueTitleModel<ExpensesCategory>[] {
         if (operationType === OPERATION_TYPE.income) {
             return Object.values(INCOME_CATEGORY).map((value) => ({ value, title: value }));

@@ -65,7 +65,7 @@ export abstract class AbstractAsyncStorage implements AsyncStorageInterface {
             };
         }
 
-        this._setState({ ...this._state$.getValue(), [key]: newValue } as any);
+        this._setState({ ...this._state$.getValue(), [key]: newValue } as AsyncStorageModel<object>);
     }
 
     protected _setState<T extends object>(state: AsyncStorageModel<T>): void {
