@@ -23,17 +23,13 @@ export class OperationUpsertCategoryPipe implements PipeTransform {
 
     transform(operationType: OperationType | Nullish): ValueTitleModel<IncomeCategory>[] | ValueTitleModel<ExpensesCategory>[] {
         if (operationType === OPERATION_TYPE.income) {
-            return Object.values(INCOME_CATEGORY).map((value) => ({ value, title: this._upperCaseFirstLetter(value) }));
+            return Object.values(INCOME_CATEGORY).map((value) => ({ value, title: value }));
         }
 
         if (operationType === OPERATION_TYPE.expense) {
-            return Object.values(EXPENSES_CATEGORY).map((value) => ({ value, title: this._upperCaseFirstLetter(value) }));
+            return Object.values(EXPENSES_CATEGORY).map((value) => ({ value, title: value }));
         }
 
         return [];
-    }
-
-    private _upperCaseFirstLetter(value: string): string {
-        return value.charAt(0).toUpperCase() + value.slice(1);
     }
 }

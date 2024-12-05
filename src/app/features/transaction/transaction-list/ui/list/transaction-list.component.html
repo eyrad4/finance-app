@@ -1,0 +1,38 @@
+<app-transaction-list-filters />
+
+<table mat-table [dataSource]="_filteredItems()" matSort (matSortChange)="_sortWasChanged($event)">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <!-- Amount Column -->
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+    <td mat-cell *matCellDef="let element"> ${{ element.amount }} </td>
+  </ng-container>
+
+  <!-- Category Column -->
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> Category </th>
+    <td mat-cell *matCellDef="let element"> {{ element.category }} </td>
+  </ng-container>
+
+  <!-- Operation Type Column -->
+  <ng-container matColumnDef="operationType">
+    <th mat-header-cell *matHeaderCellDef> Operation Type </th>
+    <td mat-cell *matCellDef="let element"> {{ element.operationType }} </td>
+  </ng-container>
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+    <td mat-cell *matCellDef="let element"> {{ element.date }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="_displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: _displayedColumns;"></tr>
+</table>
+

@@ -1,0 +1,23 @@
+<div class="flex items-center gap-4">
+  <div>Filtered: </div>
+  <mat-form-field>
+    <mat-label>Operation type</mat-label>
+    <mat-select [(ngModel)]="_selectedOperationType" (valueChange)="_operationTypeWasChanged($event)">
+      <mat-option value="">All</mat-option>
+      @for (operation of _operationTypes; track operation) {
+        <mat-option [value]="operation">{{ operation | uppercaseFirstLetter }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>By category</mat-label>
+    <mat-select [(ngModel)]="_selectedCategory"  (valueChange)="_categoryWasChanged($event)">
+      <mat-option value="">All</mat-option>
+      @for (category of _filteredCategories(); track category.value) {
+        <mat-option [value]="category.value">{{ category.value | uppercaseFirstLetter }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>
+

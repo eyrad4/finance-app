@@ -12,6 +12,7 @@ import { MatOption, MatSelect } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { filter, switchMap, take } from 'rxjs';
 
+import { UppercaseFirstLetterPipe } from '@finance-app/shared/pipes';
 import { DialogService, SnackBarService } from '@finance-app/shared/services';
 
 import { OperationUpsertFetchService } from '../data-access/operation-upsert-fetch.service';
@@ -38,11 +39,12 @@ import { OperationUpsertFormService } from '../services/operation-upsert-form.se
         MatButtonModule,
         FormsModule,
         ReactiveFormsModule,
-        OperationUpsertCategoryPipe,
         MatDialogModule,
         MatFormFieldModule,
         MatInputModule,
-        MatDatepickerModule
+        MatDatepickerModule,
+        OperationUpsertCategoryPipe,
+        UppercaseFirstLetterPipe
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [OperationUpsertFormService, OperationUpsertFetchService]

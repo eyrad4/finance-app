@@ -9,7 +9,7 @@ export const routes: Routes = [
         children: [
             {
                 path: 'transactions',
-                loadComponent: () => import('@finance-app/features/operation/upsert').then((c) => c.OperationUpsertComponent)
+                loadComponent: () => import('@finance-app/features/transaction').then((c) => c.TransactionListComponent)
             },
             {
                 path: 'operation',

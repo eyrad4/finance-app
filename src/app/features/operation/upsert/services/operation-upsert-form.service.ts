@@ -5,7 +5,7 @@ import { defer } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 
 import { OPERATION_TYPE, OperationType } from '@finance-app/domain/types';
-import { TransactionModel } from '@finance-app/features/transaction/models';
+import { TransactionModel } from '@finance-app/features/transaction';
 import { FormStructureOf, Nullish } from '@finance-app/shared/cdk/types';
 import { CustomValidators } from '@finance-app/shared/cdk/validators';
 

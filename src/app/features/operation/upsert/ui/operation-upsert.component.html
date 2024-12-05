@@ -46,7 +46,7 @@
     <mat-label>Category</mat-label>
     <mat-select formControlName="category">
       @for (elem of _formService.operationTypeValue() | operationUpsertCategory; track elem?.value) {
-        <mat-option value="{{ elem?.value }}">{{ elem?.title }}</mat-option>
+        <mat-option value="{{ elem?.value }}">{{ elem?.title | uppercaseFirstLetter }}</mat-option>
       }
     </mat-select>
   </mat-form-field>

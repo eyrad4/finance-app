@@ -3,7 +3,7 @@ import { EMPTY, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { LocalAsyncStorageService } from '@finance-app/core/storage';
-import { TransactionModel } from '@finance-app/features/transaction/models';
+import { TransactionModel } from '@finance-app/features/transaction';
 import { UuidService } from '@finance-app/shared/cdk/services';
 import { Nullish } from '@finance-app/shared/cdk/types';
 

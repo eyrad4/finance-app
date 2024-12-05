@@ -15,7 +15,7 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
-    "target": "ES2022",
+    "target": "ES2023",
     "module": "ES2022",
     "paths": {
       "@finance-app/core/storage": ["./src/app/core/storage/_index.ts"],
@@ -26,7 +26,8 @@
       "@finance-app/shared/cdk/services": ["./src/app/shared/cdk/services/_index.ts"],
       "@finance-app/shared/cdk/validators": ["./src/app/shared/cdk/validators/_index.ts"],
       "@finance-app/shared/services": ["./src/app/shared/services/_index.ts"],
-      "@finance-app/features/transaction/models": ["./src/app/features/transaction/_index.ts"],
+      "@finance-app/shared/pipes": ["./src/app/shared/pipes/_index.ts"],
+      "@finance-app/features/transaction": ["./src/app/features/transaction/_index.ts"],
       "@finance-app/features/operation/upsert": ["./src/app/features/operation/upsert/_index.ts"]
     }
   },
